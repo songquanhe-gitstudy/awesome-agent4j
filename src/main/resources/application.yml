@@ -1,0 +1,14 @@
+langchain4j:
+  open-ai:
+    chat-model:
+      api-key: "sk-148840d44c25411c9cabd4ae380c6fa6"
+      # 可选：如果使用代理或其他兼容 OpenAI 格式的模型（如 DeepSeek, 通义千问等），可以配置 base-url
+      base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+      model-name: qwen-turbo
+      log-requests: true
+      log-responses: true
+
+logging:
+  level:
+    dev.langchain4j: DEBUG
+
