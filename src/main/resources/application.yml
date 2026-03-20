@@ -5,10 +5,23 @@ langchain4j:
       # 可选：如果使用代理或其他兼容 OpenAI 格式的模型（如 DeepSeek, 通义千问等），可以配置 base-url
       base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
       model-name: qwen-turbo
+      # 开启极其详细的请求/响应内容记录（包含所有的 Tool Calls JSON）
       log-requests: true
       log-responses: true
 
 logging:
   level:
-    dev.langchain4j: DEBUG
+    # 根日志保持 INFO，避免刷屏
+    root: INFO
+    # 开启项目代码的 DEBUG
+    com.awesome.agent4j: DEBUG
+    # 将 LangChain4j 调至 TRACE 级别，可以看到更底层的消息流转和内存操作
+    dev.langchain4j: TRACE
+    # 开启 Spring Web 的 DEBUG，可以看到每一个 HTTP 请求进入 Controller 的细节
+    #org.springframework.web: DEBUG
+    # 如果想看底层的 HTTP 链接细节，可以开启这个
+    # okhttp3: DEBUG
+
+# 自定义日志格式，让输出更清晰
+logging.pattern.console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
 
